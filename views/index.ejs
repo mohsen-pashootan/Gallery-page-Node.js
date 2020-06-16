@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <title>MY GALLERY TO SHOW</title>
+    <link rel="stylesheet" href="/css/w3template.css">
+
+    <style>
+        h1 {
+            font-size: 40px;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        .w3-bar-block .w3-bar-item {
+            padding: 20px
+        }
+    </style>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+</head>
+
+<body>
+
+    <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+        <h1>MY GALLERY TO SHOW</h1>
+        <br>
+        <% for(let i=0; i<galleries.length; i++) { %>
+        <div class="w3-quarter">
+            <img src="<%= galleries[i].image.url %>" style="width:100%">
+            <h3 class="desc"> <%= galleries[i].title %> </h3>
+            <p class="desc"> <%= galleries[i].description %> </p>
+            <p class="desc"> Like: <%= galleries[i].rate %> </p>
+
+        </div>
+        <%}%>
+    </div>
+
+
+
+
+
+</body>
+
+
+</html>
