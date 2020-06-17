@@ -96,13 +96,10 @@ class GalleryRepository {
   }
 
   inc(id) {
-    console.log(this.GalleryRepository);
-    console.log(typeof id);
-    
-    
-    const index = this.GalleryRepository.findIndex((Gallery) => Gallery.id === id);
-    console.log(index);
-    
+    const index = this.GalleryRepository.findIndex(
+      (Gallery) => Gallery.id === id
+    );
+
     if (index !== -1) {
       return (
         ++this.GalleryRepository[index].rate,
@@ -111,7 +108,29 @@ class GalleryRepository {
     }
   }
   dec(id) {
-    this.GalleryRepository.rate--;
+    const index = this.GalleryRepository.findIndex(
+      (Gallery) => Gallery.id === id
+    );
+
+    if (index !== -1) {
+      return (
+        --this.GalleryRepository[index].rate,
+        (Repository = [...this.GalleryRepository])
+      );
+    }
+  }
+
+  sort() {
+    this.GalleryRepository.sort((a, b) => {
+      if (a.rate < b.rate) {
+        return 1;
+      } else if (a.rate > b.rate) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+    return this.GalleryRepository;
   }
 }
 

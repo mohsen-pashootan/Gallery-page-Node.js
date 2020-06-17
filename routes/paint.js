@@ -13,4 +13,9 @@ module.exports = function (app) {
     galleryrepository.inc(userId);
     res.redirect("/");
   });
+
+  app.get("/mostLiked", (req, res) => {
+    galleryrepository.sort();
+    res.redirect("/");
+  });
 };

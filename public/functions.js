@@ -9,7 +9,6 @@ function w3_close() {
   document.getElementById("myOverlay").style.display = "none";
 }
 
-// const likeSpan = document.querySelectorAll(".like-icon");
 const heart = document.querySelectorAll(".fa.fa-heart-o");
 console.log(heart);
 
@@ -18,10 +17,8 @@ heart.forEach((item) => {
     console.log("clicked");
     if (item.className === "fa fa-heart-o") {
       item.className = "fa fa-heart";
-     
     } else {
       item.className = "fa fa-heart-o";
-      
     }
   });
 });
