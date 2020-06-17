@@ -8,3 +8,20 @@ function w3_close() {
   document.getElementById("mySidebar").style.display = "none";
   document.getElementById("myOverlay").style.display = "none";
 }
+
+// const likeSpan = document.querySelectorAll(".like-icon");
+const heart = document.querySelectorAll(".fa.fa-heart-o");
+console.log(heart);
+
+heart.forEach((item) => {
+  item.addEventListener("click", () => {
+    console.log("clicked");
+    if (item.className === "fa fa-heart-o") {
+      item.className = "fa fa-heart";
+     
+    } else {
+      item.className = "fa fa-heart-o";
+      
+    }
+  });
+});

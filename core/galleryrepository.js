@@ -1,7 +1,7 @@
 const Gallery = require("./gallery");
 let Repository = [
   {
-    id: 01,
+    id: "1",
     title: "Ladybug Insect Nature",
     description:
       "Sed velit lacus, laoreet at venenatis convallis in lorem tincidunt.",
@@ -11,7 +11,7 @@ let Repository = [
     },
   },
   {
-    id: 02,
+    id: "2",
     title: "Sloe Nature Crop Berry",
     description:
       "Tristique in nulla vel congue. Sed sociis natoque parturient nascetur.",
@@ -21,7 +21,7 @@ let Repository = [
     },
   },
   {
-    id: 03,
+    id: "3",
     title: "Kingfisher Bird Aviary Color Nature Animal Beak",
     description:
       "In pellentesque cursus velit id posuere. Donec vehicula nulla.",
@@ -31,7 +31,7 @@ let Repository = [
     },
   },
   {
-    id: 04,
+    id: "4",
     title: "Stork Bird Animal Fly White Stork Rattle Stork",
     description:
       "Nulla dignissim libero maximus tellus varius dictum ut posuere magna.",
@@ -41,7 +41,7 @@ let Repository = [
     },
   },
   {
-    id: 05,
+    id: "5",
     title: "Butterfly Nature Living Nature",
     description:
       "Etiam ultricies, lorem quis efficitur porttitor, facilisis ante orci urna.",
@@ -51,7 +51,7 @@ let Repository = [
     },
   },
   {
-    id: 06,
+    id: "6",
     title: "Ladybug Insect Nature Meadow",
     description:
       "Nunc egestas congue lorem. Nullam dictum placerat ex sapien tortor mattis.",
@@ -61,7 +61,7 @@ let Repository = [
     },
   },
   {
-    id: 07,
+    id: "7",
     title: "Kolos Grass Meadow Field Green Nature Plant",
     description:
       "Vestibulum ante ipsum primis in faucibus orci luctus ac tincidunt dolor.",
@@ -71,7 +71,7 @@ let Repository = [
     },
   },
   {
-    id: 08,
+    id: "8",
     title: "Flower Floral Blossom Nature Spring Summer Bloom",
     description:
       "Feugiat auctor leo massa, nec vestibulum nisl erat faucibus, rutrum nulla.",
@@ -93,6 +93,25 @@ class GalleryRepository {
           image: item.image,
         })
     );
+  }
+
+  inc(id) {
+    console.log(this.GalleryRepository);
+    console.log(typeof id);
+    
+    
+    const index = this.GalleryRepository.findIndex((Gallery) => Gallery.id === id);
+    console.log(index);
+    
+    if (index !== -1) {
+      return (
+        ++this.GalleryRepository[index].rate,
+        (Repository = [...this.GalleryRepository])
+      );
+    }
+  }
+  dec(id) {
+    this.GalleryRepository.rate--;
   }
 }
 
