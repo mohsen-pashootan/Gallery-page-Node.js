@@ -22,3 +22,5 @@ heart.forEach((item) => {
     }
   });
 });
+
+const input = document.getElementById("input-search");

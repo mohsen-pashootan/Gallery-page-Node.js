@@ -120,11 +120,30 @@ class GalleryRepository {
     }
   }
 
+  get(input) {
+    const filteredItems = this.GalleryRepository.filter((item) => {
+      return item.title.toLocaleLowerCase().includes(input.toLocaleLowerCase());
+    });
+    return filteredItems;
+  }
+
   sort() {
     this.GalleryRepository.sort((a, b) => {
       if (a.rate < b.rate) {
         return 1;
       } else if (a.rate > b.rate) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+    return this.GalleryRepository;
+  }
+  mostNew() {
+    this.GalleryRepository.sort((a, b) => {
+      if (a.id < b.id) {
+        return 1;
+      } else if (a.id > b.id) {
         return -1;
       } else {
         return 0;
