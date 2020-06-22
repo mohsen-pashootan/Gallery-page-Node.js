@@ -9,6 +9,7 @@ let Repository = [
     image: {
       url: "./images/01.jpg",
     },
+    className: "fa fa-heart-o",
   },
   {
     id: "2",
@@ -19,6 +20,7 @@ let Repository = [
     image: {
       url: "./images/02.jpg",
     },
+    className: "fa fa-heart-o",
   },
   {
     id: "3",
@@ -29,6 +31,7 @@ let Repository = [
     image: {
       url: "./images/03.jpg",
     },
+    className: "fa fa-heart-o",
   },
   {
     id: "4",
@@ -39,6 +42,7 @@ let Repository = [
     image: {
       url: "./images/04.jpg",
     },
+    className: "fa fa-heart-o",
   },
   {
     id: "5",
@@ -49,6 +53,7 @@ let Repository = [
     image: {
       url: "./images/05.jpg",
     },
+    className: "fa fa-heart-o",
   },
   {
     id: "6",
@@ -59,6 +64,7 @@ let Repository = [
     image: {
       url: "./images/06.jpg",
     },
+    className: "fa fa-heart-o",
   },
   {
     id: "7",
@@ -69,6 +75,7 @@ let Repository = [
     image: {
       url: "./images/07.jpg",
     },
+    className: "fa fa-heart-o",
   },
   {
     id: "8",
@@ -79,8 +86,10 @@ let Repository = [
     image: {
       url: "./images/08.jpg",
     },
+    className: "fa fa-heart-o",
   },
 ];
+
 class GalleryRepository {
   constructor() {
     this.GalleryRepository = Repository.map(
@@ -91,6 +100,7 @@ class GalleryRepository {
           description: item.description,
           rate: item.rate,
           image: item.image,
+          className: item.className,
         })
     );
   }
@@ -101,28 +111,28 @@ class GalleryRepository {
     );
 
     if (index !== -1) {
-      return (
-        ++this.GalleryRepository[index].rate,
-        (Repository = [...this.GalleryRepository])
-      );
-    }
-  }
-  dec(id) {
-    const index = this.GalleryRepository.findIndex(
-      (Gallery) => Gallery.id === id
-    );
-
-    if (index !== -1) {
-      return (
-        --this.GalleryRepository[index].rate,
-        (Repository = [...this.GalleryRepository])
-      );
+      if (this.GalleryRepository[index].className === "fa fa-heart-o") {
+        return (
+          ++this.GalleryRepository[index].rate,
+          (Repository = [...this.GalleryRepository]),
+          (this.GalleryRepository[index].className = "fa fa-heart")
+        );
+      } else {
+        return (
+          --this.GalleryRepository[index].rate,
+          (Repository = [...this.GalleryRepository]),
+          (this.GalleryRepository[index].className = "fa fa-heart-o")
+        );
+      }
     }
   }
 
   get(input) {
     const filteredItems = this.GalleryRepository.filter((item) => {
-      return item.title.toLocaleLowerCase().includes(input.toLocaleLowerCase());
+      return (
+        item.title.toLocaleLowerCase().includes(input.toLocaleLowerCase()) ||
+        item.description.toLocaleLowerCase().includes(input.toLocaleLowerCase())
+      );
     });
     return filteredItems;
   }

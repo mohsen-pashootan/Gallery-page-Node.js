@@ -27,12 +27,11 @@ module.exports = function (app) {
   });
 
   app.get("/searchResult", (req, res) => {
-    const q = url.parse(req.url, true).query; // Get query string
-    let paint = galleryrepository.get(q.search2); // Use query string
-    console.log(paint);
-
-    // Call db or any
-    res.render("searchResult", { paint });
-    // res.send(paint);
+    const q = url.parse(req.url, true).query;
+    let paint = galleryrepository.get(q.search2);
+    res.render("searchResult", {
+      paint,
+      galleries: galleryrepository.GalleryRepository,
+    });
   });
 };

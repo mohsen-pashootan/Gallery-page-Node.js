@@ -134,9 +134,13 @@
                     <h3> <%= paint[i].title %> </h3>
                     <p> <%= paint[i].description %> </p>
                     <p>
-                        <a href="/liked/<%=paint[i].id%>"><i class='fa fa-heart-o' style='font-size:36px'
-                                aria-hidden="true"></i></a>
-                        Like: <%= paint[i].rate %> </p>
+                        <a href="/notLiked/<%=galleries[i].id%>"><i class="fa fa-thumbs-o-down  "
+                                style="font-size:24px"></i>
+                        </a>
+                        <span>Like: <%= galleries[i].rate %></span>
+                        <a href="/liked/<%=galleries[i].id%>"><i class="fa fa-thumbs-o-up" style="font-size:24px"></i>
+                        </a>
+                    </p>
                 </div>
             </div>
             <%}%>
