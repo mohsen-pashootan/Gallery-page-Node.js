@@ -92,7 +92,7 @@ let Repository = [
 
 class GalleryRepository {
   constructor() {
-    this.GalleryRepository = Repository.map(
+    this.galleryRepository = Repository.map(
       (item) =>
         new Gallery({
           id: item.id,
@@ -106,29 +106,29 @@ class GalleryRepository {
   }
 
   inc(id) {
-    const index = this.GalleryRepository.findIndex(
-      (Gallery) => Gallery.id === id
+    const index = this.galleryRepository.findIndex(
+      (gallery) => gallery.id === id
     );
 
     if (index !== -1) {
-      if (this.GalleryRepository[index].className === "fa fa-heart-o") {
+      if (this.galleryRepository[index].className === "fa fa-heart-o") {
         return (
-          ++this.GalleryRepository[index].rate,
-          (Repository = [...this.GalleryRepository]),
-          (this.GalleryRepository[index].className = "fa fa-heart")
+          ++this.galleryRepository[index].rate,
+          (Repository = [...this.galleryRepository]),
+          (this.galleryRepository[index].className = "fa fa-heart")
         );
       } else {
         return (
-          --this.GalleryRepository[index].rate,
-          (Repository = [...this.GalleryRepository]),
-          (this.GalleryRepository[index].className = "fa fa-heart-o")
+          --this.galleryRepository[index].rate,
+          (Repository = [...this.galleryRepository]),
+          (this.galleryRepository[index].className = "fa fa-heart-o")
         );
       }
     }
   }
 
   get(input) {
-    const filteredItems = this.GalleryRepository.filter((item) => {
+    const filteredItems = this.galleryRepository.filter((item) => {
       return (
         item.title.toLocaleLowerCase().includes(input.toLocaleLowerCase()) ||
         item.description.toLocaleLowerCase().includes(input.toLocaleLowerCase())
@@ -138,7 +138,7 @@ class GalleryRepository {
   }
 
   sort() {
-    this.GalleryRepository.sort((a, b) => {
+    this.galleryRepository.sort((a, b) => {
       if (a.rate < b.rate) {
         return 1;
       } else if (a.rate > b.rate) {
@@ -147,10 +147,10 @@ class GalleryRepository {
         return 0;
       }
     });
-    return this.GalleryRepository;
+    return this.galleryRepository;
   }
   mostNew() {
-    this.GalleryRepository.sort((a, b) => {
+    this.galleryRepository.sort((a, b) => {
       if (a.id < b.id) {
         return 1;
       } else if (a.id > b.id) {
@@ -159,7 +159,7 @@ class GalleryRepository {
         return 0;
       }
     });
-    return this.GalleryRepository;
+    return this.galleryRepository;
   }
 }
 
